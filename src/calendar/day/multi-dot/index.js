@@ -58,6 +58,17 @@ class Day extends Component {
     }
     return;
   }
+  renderDot(marking){
+    if(marking.level==1){
+      return <View style={{width: '100%', height: '50%', backgroundColor: '#0041c5', opacity: 0.4}}/>
+    }
+    if(marking.level==2){
+      return <View style={{width: '100%', height: '50%', backgroundColor: '#0041c5'}}/>
+    }
+    if(marking.level==3){
+      return <View style={{width: '100%', height: '100%', backgroundColor: '#0041c5'}}/>
+    }
+  }
 
   render() {
     const containerStyle = [this.style.base];
@@ -65,7 +76,6 @@ class Day extends Component {
 
     const marking = this.props.marking || {};
     const dot = this.renderDots(marking);
-
     if (marking.selected) {
       containerStyle.push(this.style.selected);
       textStyle.push(this.style.selectedText);
@@ -85,7 +95,9 @@ class Day extends Component {
         onPress={this.onDayPress}
         onLongPress={this.onDayLongPress}>
         <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
-        <View style={{flexDirection: 'row'}}>{dot}</View>
+        <View style={{ marginTop: 8, width: 12, height: 12, backgroundColor: '#f6f6f6', borderRadius: 6, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}} >
+          {this.renderDot(marking)}
+        </View>
       </TouchableOpacity>
     );
   }
