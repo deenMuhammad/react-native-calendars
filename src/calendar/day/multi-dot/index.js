@@ -59,13 +59,13 @@ class Day extends Component {
     return;
   }
   renderDot(marking){
-    if(marking.level==1){
+    if(marking.level>=1&&marking.level<2){
       return <View style={{width: '100%', height: '50%', backgroundColor: '#0041c5', opacity: 0.4}}/>
     }
-    if(marking.level==2){
+    if(marking.level>=2&&marking.level<3){
       return <View style={{width: '100%', height: '50%', backgroundColor: '#0041c5'}}/>
     }
-    if(marking.level==3){
+    if(marking.level>=3){
       return <View style={{width: '100%', height: '100%', backgroundColor: '#0041c5'}}/>
     }
   }
